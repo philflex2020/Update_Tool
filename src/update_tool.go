@@ -752,7 +752,7 @@ func TestJunk (data [] byte) {
 
 func main() {
     // file, err := os.Open("./assets.json")
-	data, err := os.ReadFile("assets.json")
+	data, err := os.ReadFile("config/assets.json")
     if err != nil {
         log.Fatal(err)
     }
