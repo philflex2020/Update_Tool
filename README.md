@@ -56,6 +56,115 @@ cp pkg\jpack\jpack.go 'C:\Program Files\Go\src\jpack\'
 go build src/update_tool.go
 mkdir output
 
+
+
+## Commands in Developemnt
+
+The go call is shown with the command text 
+The update tool will convert the command text into command argements.
+
+// cmd = ReplaceValue at 0 "22" with "423" in [assets.feeders.sync_feeder]
+val,_ := ReplaceValue(data, 0, "22", "423","assets","feeders","sync_feeder")
+
+// cmd = ReplaceVarName at 0 "sync_feeder" [with value 22]  with "new_sync_feeder" in [assets.feeders]
+val,_ = ReplaceVarName(val, 0, "sync_feeder","22", "new_sync_feeder","assets","feeders")
+
+// cmd = RemoveItem at 0 "sync_feeder"  [with value 423] in [assets.feeders]
+val,_= RemoveItem(val, 0, "new_sync_feeder","423", "assets","feeders")
+
+// cmd = AddItem at 0 "new_poi_feeder" value 1234  in [assets.feeders]
+val,_ = AddItem(val, 0, "new_poi_feeder","1234", "assets","feeders")
+
+// cmd = AddItem at 0 "new_object" value {}  in [assets.feeders]
+val,_ = AddItem(val, 0, "new_object","{}", "assets","feeders")
+
+// cmd = AddItem at 0 "new_array" value []  in [assets.feeders]
+val,_ = AddItem(val, 0, "new_array","[]", "assets","feeders")
+
+// cmd = AddItem at 0 "new_value3" value 123456    in [assets.feeders.new_array]
+val,_  = AddItem(val, 0, "new_value3","123456", "assets","feeders","new_array")
+
+
+// cmd = AddItem at 0 after new_value4 as "new_value41" value 233    in [assets.feeders.new_array]
+val,_  = AddItemAfter(val, 0, "new_value4", "new_value41","233", "assets","feeders","new_array")
+
+// cmd = AddItem at 0 before new_value4 as "new_value40" value 333    in [assets.feeders.new_array]
+val,_  = AddItemBefore(val, 0, "new_value4", "new_value41","233", "assets","feeders","new_array")
+
+// cmd = RemoveItem at 0 new_array   in [assets.feeders]
+val,_  = RemoveItem(val, 0, "new_array", "", "assets","feeders")
+
+// cmd = RemoveItem at 0 new_object   in [assets.feeders]
+val,_  = RemoveItem(val, 0, "new_object", "", "assets","feeders")
+
+// we want to capture the array assets_instances with an id of feed_1 
+// we set the base to assets:feeders:asset_instances  then use that as a new base
+idx,_  = ArrayIdx(val, 0, "id", "feed_1", "assets","feeders","asset_instances")
+
+
+	//Todo 
+	// TODO find a name value pair in a range
+	// TODO define a command block 
+	// TODO If name/value found then do command block
+
+	// added aofs to allow it all to happen in the context of an array
+	// 
+	// InsideArray 
+	// do all the above in an array where key == value or where indx is defined 
+    // create an arrayidx
+	// fmt.Printf("TEST::: create arrayidx  \n")   
+	// idx,_  = ArrayIdx(val, 0, "name", "val", "assets","feeders","asset_instances")
+
+	// Stretch  goal Auto create update from before and after objects.
+
+	// so how do we add this to assets.json  
+	//                     "absolute_power_direction_flag":
+    //                      {
+    //         "name": "Charging when Enabled",
+    //         "ui_type": "control",
+    //         "type": "enum_slider",
+    //         "var_type": "Bool",
+    //         "value": false,
+    //         "remote_enabled": true,
+    //         "options":
+    //         [
+    //             {
+    //                 "name": "Charge",
+    //                 "value": true
+    //             },
+    //             {
+    //                 "name": "Discharge",
+    //                 "value": false
+    //             }
+    //         ]
+    //     },
+	//here
+	//"ess":
+	//	{
+	//	"asset_instances":
+	//		[
+	//			{
+	//				"id": "ess_#",
+	//	            "components":
+	//	            [
+	//		          {
+	//			        "component_id": "flexgen_ess_#_hs",
+	//			        "variables":
+	//			        {
+		
+	fmt.Printf("TEST::: create arrayidx  \n")   
+// navigate to ess asset_instances 
+	idx1,_  := ArrayIdx(val, 0, "id", "ess_#", "assets","ess","asset_instances")
+	fmt.Printf("TEST::: create arrayidx id = ess_#  found [%v] \n",idx1)   
+// navigate to components flexgen_ess_#_hs
+	idx2,_  := ArrayIdx(val, idx1, "component_id", "flexgen_ess_#_hs", "components")
+	fmt.Printf("TEST::: create arrayidx  component_id flexgen_ess_#_hs  found [%v] \n",idx2)   
+    // add object to variables
+	val,_ = AddItem(val, idx2, "absolute_power_direction_flag","{}", "variables")
+	fmt.Printf("TEST::: val after first AddItem [%v] \n",string(val))   
+    
+    // add name 
+
 update_tool
 
 p wilshire  07/01/2022
