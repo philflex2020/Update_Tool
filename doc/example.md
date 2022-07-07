@@ -31,7 +31,7 @@ so how do we add this variable to assets.json
         }
 ```
 
-At this location in asstes.json 
+At this location (in assets.json) 
 
 ```
 {
@@ -56,6 +56,7 @@ At this location in asstes.json
      }
     }
  ```       
+ 
 ## Update tools design
 
 The update tool allows navigation to any object in a json file.
