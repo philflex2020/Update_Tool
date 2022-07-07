@@ -1,5 +1,19 @@
 package main
 
+
+// this code demonstrates decoding a string from a text file into a command used by the update tool.
+// we capture all the rguements into a map. The command handler can then extract the arguments it needs.
+// any missing ones can be defaulted or errored 
+// 	Here is a typical command 
+// "AddItem at:0      after:new_value4 as:new_value41 value:233  in:assets.feeders.new_array"
+
+// we need to call this command 
+
+// Note we'll have to revisit "assets","feeders","new_array"
+//
+//                       at    as               value   in 
+// val,err := AddItem(val, 0, "new_poi_feeder" ,"1234" ,"assets","feeders","new_array")
+
 import (
 	"fmt"
 	"strings"
@@ -12,23 +26,23 @@ type Cmds struct {
 
 type Cmd struct {
 	key, help string
-	Func func (data []byte, fm map[string]string) (value []byte, err error)
+	Func func (data []byte, fm map[string]string) (value []byte, idx int, err error)
 }
 
-func (c Cmds) addCmd (key,help string, f func (data []byte, fm map[string]string) (value []byte, err error) ) int {
+func (c Cmds) addCmd (key,help string, f func (data []byte, fm map[string]string) (value []byte, idx int, err error) ) int {
 	c.cmds[key]= Cmd{key:key, help:help, Func:f}
 	return 0
 }
 
-func (c Cmds) runCmd (data []byte, fm map[string]string) (value []byte, err error)  {
+func (c Cmds) runCmd (data []byte, fm map[string]string) (value []byte, idx int, err error)  {
 	err = nil
 	fun,ok := c.cmds[fm["func"]]
 	if ok {
-	   data,err =  fun.Func(data, fm)	
+	   data,idx, err =  fun.Func(data, fm)	
 	// } else {
 	// 	conn.Write([]byte( message +" not understood, try \"help\"  \n"))
 	} 
-	return data,err
+	return data,idx,err
 }
 
 func standardizeSpaces(s string) string {
@@ -63,16 +77,18 @@ func SplitOnWhiteSpace(str string) []string {
 }
 
 
-func AddItem(data []byte, fm map[string]string) (value []byte, err error) {
-	at,err := strconv.Atoi(fm["atx"])
+func AddItem(data []byte, fm map[string]string) (value []byte, idx int, err error) {
+	at,err := strconv.Atoi(fm["at"])
 	if err != nil {
 		at = 0
+		fmt.Printf("error [%v]\n", err)
 	}
 	fmt.Printf(" CMD  AddItem running\n fm [%v] at %d \n", fm, at)
-	return data,nil
+	return data,at,nil
 }
 
 func main() {
+
 	cmds := new(Cmds)
 	cmds.cmds = make(map[string]Cmd)
 	cmds.addCmd("AddItem", "Add an Item", AddItem)
@@ -97,9 +113,9 @@ func main() {
 	}
 	fmt.Printf(" fm [%v] \n", fm)
 	//AddItem( data, fm )
-	data,err := cmds.runCmd(data, fm)
+	data,idx,err := cmds.runCmd(data, fm)
 	if err != nil {
-		fmt.Printf(" err [%v]\n", err)
+		fmt.Printf(" err [%v] idx [%v] \n", err, idx)
 	}
 
 
