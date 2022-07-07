@@ -10,7 +10,7 @@ import (
 	"os"
 	"log"
 	"unsafe"
-	jp "jsonp2"
+	jp "jpack"
 	"strconv"
 )
 
