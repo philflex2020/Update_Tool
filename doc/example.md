@@ -59,19 +59,27 @@ At this location in assts.json
 ## Update tools design
 
 The update tool allows navigation to any object in a json file.
+
 The navigation is from a designated offset (ArrayIndex) so that complicated layouts can be managed
+
 To nagivate from the root of the json object the ArrayIndex is set to 0
 
 To help manage Arrays , the array object is discovered and then an item in the array can be selcted by finding a "name=value" field within that array.
+
 Once an ArrayIndex has been discovered, the update tool can add/delete/rename objects from the ArrayIndex designated location.
+
 All these changes are merged into the original text object.
 
 
 ## Proposed Commands
+
 Here are the proposed commands
 
+```
 cmd load assets.json
 // navigate to ess_# in asset_instances
+
+
 cmd set idx1 = ArrayIndex from 0 where id = ess_# in [assets,ess,asset_instances] 
 
 // navigate to components
@@ -118,4 +126,5 @@ cmd AddItem from idx3 "value" "true"
 
 // save it all
 cmd save assets.json
+```
 

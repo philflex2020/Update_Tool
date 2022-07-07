@@ -51,18 +51,22 @@ if assets:version  != 9.3 then run command Upgrade_to_9.3
 
 ## Build instructions
 
+```
 mkdir 'C:\Program Files\Go\src\jpack'
 cp pkg\jpack\jpack.go 'C:\Program Files\Go\src\jpack\'
 go build src/update_tool.go
 mkdir output
+```
 
 
 
 ## Commands in Developemnt
 
 The go call is shown with the command text 
+
 The update tool will convert the command text into command argements.
 
+```
 // cmd = ReplaceValue at 0 "22" with "423" in [assets.feeders.sync_feeder]
 val,_ := ReplaceValue(data, 0, "22", "423","assets","feeders","sync_feeder")
 
@@ -112,7 +116,8 @@ idx2,_  := ArrayIdx(val, idx1, "component_id", "flexgen_ess_#_hs", "components")
 
 // add object "absolute_power_direction_flag" to variables in the array item locaated after idx2 
 val,_ = AddItem(val, idx2, "absolute_power_direction_flag","{}", "variables")
-    
+```
+
 
 ## We will add conditionals next.
 
