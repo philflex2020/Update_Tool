@@ -1,1 +1,2145 @@
-
+{
+	"assets":
+	{  
+		"feeders":
+		{
+			"poi_feeder": 0,
+			"sync_feeder": 20,
+			"sync_frequency_offset": 0,
+			"asset_instances":
+			[
+				{
+					"id": "feed_1",
+					"name": "POI",
+					"value_open": 2,
+					"value_close": 1,
+					"value_reset": 7,
+					"rated_active_power_kw": 4000,
+					"slew_rate": 5000000,
+					"demand_control": "Uncontrolled",
+					"components":
+					[
+						{
+							"component_id": "breaker",
+							"variables":
+							{
+								"breaker_status":
+								{
+									"name": "Breaker Status (POI)",
+									"register_id": "status_invert",
+									"type": "Bool"
+								}
+							}
+						},
+						{
+							"component_id": "sel_735",
+							"variables":
+							{
+								"grid_frequency":
+								{
+									"name": "Frequency (735)",
+									"register_id": "frequency",
+									"scaler": 1,
+									"unit": "Hz",
+									"twins_id": "f"
+								},
+								"current_l1":
+								{
+									"name": "L1 AC Current (735)",
+									"register_id": "current_l1",
+									"scaler": 1,
+									"unit": "A",
+									"twins_id": "i"
+								},
+								"current_l2":
+								{
+									"name": "L2 AC Current (735)",
+									"register_id": "current_l2",
+									"scaler": 1,
+									"unit": "A",
+									"twins_id": "i"
+								},
+								"current_l3":
+								{
+									"name": "L3 AC Current (735)",
+									"register_id": "current_l3",
+									"scaler": 1,
+									"unit": "A",
+									"twins_id": "i"
+								},
+								"voltage_l1_n":
+								{
+									"name": "L1-N AC Voltage (735)",
+									"register_id": "voltage_l1",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"voltage_l2_n":
+								{
+									"name": "L2-N AC Voltage (735)",
+									"register_id": "voltage_l2",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"voltage_l3_n":
+								{
+									"name": "L3-N AC Voltage (735)",
+									"register_id": "voltage_l3",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"voltage_l1_l2":
+								{
+									"name": "L1-L2 AC Voltage (735)",
+									"register_id": "voltage_l1_l2",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"voltage_l2_l3":
+								{
+									"name": "L2-L3 AC Voltage (735)",
+									"register_id": "voltage_l2_l3",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"voltage_l3_l1":
+								{
+									"name": "L3-L1 AC Voltage (735)",
+									"register_id": "voltage_l3_l1",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"active_power":
+								{
+									"name": "AC Active Power (735)",
+									"register_id": "active_power",
+									"scaler": 1000,
+									"unit": "W",
+									"twins_id": "p"
+								},
+								"reactive_power":
+								{
+									"name": "AC Reactive Power (735)",
+									"register_id": "reactive_power",
+									"scaler": 1000,
+									"unit": "VAR",
+									"twins_id": "q"
+								},
+								"apparent_power":
+								{
+									"name": "AC Apparent Power (735)",
+									"register_id": "apparent_power",
+									"scaler": 1000,
+									"unit": "VA",
+									"twins_id": "s"
+								},
+								"power_factor":
+								{
+									"name": "Power Factor (735)",
+									"register_id": "power_factor",
+									"scaler": 1
+								},
+								"kwh_delivered":
+								{
+									"name": "Active Energy Delivered (735)",
+									"register_id": "kwh_delivered",
+									"scaler": 1000,
+									"unit": "Wh",
+									"twins_id": "p"
+								},
+								"kwh_received":
+								{
+									"name": "Active Energy Received (735)",
+									"register_id": "kwh_received",
+									"scaler": 1000,
+									"unit": "Wh",
+									"twins_id": "p"
+								}
+							}	
+						}
+					]
+				},
+				{
+					"id": "feed_2",
+					"name": "BESS Aux",
+					"demand_control": "Uncontrolled",
+					"components":
+					[
+						{
+							"component_id": "m_bess_aux_acuvim",
+							"variables":
+							{
+								"active_power":
+								{
+									"name": "AC Active Power",
+									"register_id": "active_power",
+									"scaler": 1,
+									"unit": "kW",
+									"twins_id": "p"
+								},
+								"reactive_power":
+								{
+									"name": "AC Reactive Power",
+									"register_id": "reactive_power",
+									"scaler": 1,
+									"unit": "kW",
+									"twins_id": "q"
+								},
+								"voltage_l1_l2":
+								{
+									"name": "L1-N AC Voltage",
+									"register_id": "voltage_l1",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"voltage_l2_l3":
+								{
+									"name": "L2-N AC Voltage",
+									"register_id": "voltage_l2",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								},
+								"voltage_l3_l1":
+								{
+									"name": "L3-N AC Voltage",
+									"register_id": "voltage_l3",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v1"
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"ess":
+		{
+			"soc_balancing_factor": 4.0,
+			"entering_soc_range": 0.1,
+			"leaving_soc_range": 0.5,
+			"far_soc_range": 10.0,
+			"charge_control_divisor": 11.1,
+			"asset_instances":
+			[
+				{
+					"id": "ess_#",
+					"name": "BESS Inverter Block #",
+					"status_type": "bit_field",
+					"watchdog_enable": false,
+					"watchdog_timeout_ms": 3000,
+					"rated_capacity": 5100,
+					"rated_active_power_kw": 1000.0,
+					"rated_reactive_power_kvar": 1000.0,
+					"rated_apparent_power_kva": 1750.0,
+					"slew_rate":12500,
+					"throttle_timeout_fast_ms": 150,
+					"throttle_timeout_slow_ms": 2000,
+					"deadband_percent": 0.1,
+					"running_status_mask": "0x0A",
+					"stopped_status_mask": "0x01",
+					"standby_status_mask": "0x08",
+					"DC_contactor_open": 1,
+					"DC_contactor_closed": 2,
+					"DC_contactor_reset": 3,
+					"DC_contactor_restriction": true,
+					"demand_control": "Direct",
+					"nominal_voltage": 690.0,
+					"nominal_frequency": 60.0,
+					"start_value": 207,
+					"stop_value": 206,
+					"enter_standby_value": 205,
+					"exit_standby_value": 207,
+					"chg_soc_begin": 95.0,
+					"chg_soc_end": 101.0,
+					"dischg_soc_begin": 5.0,
+					"dischg_soc_end": -1.0,
+					"min_raw_soc":4,
+					"max_raw_soc":97,
+					"grid_form_cmd":85,
+					"grid_follow_cmd":170,
+					"number_of_instances": 2,
+					"components":
+					[
+						{
+							"component_id": "flexgen_ess_#_hs",
+							"variables":
+							{
+								"active_power_setpoint":
+								{
+									"name": "Active Power Setpoint",
+									"register_id": "active_power_setpoint",
+									"scaler": 1000,
+									"unit": "W",
+									"twins_id": "pcmd"
+								},
+								"reactive_power_setpoint":
+								{
+									"name": "Reactive Power Setpoint",
+									"register_id": "reactive_power_setpoint",
+									"scaler": 1000,
+									"unit": "VAR",
+									"twins_id": "qcmd"
+								},
+								"voltage_setpoint":
+								{
+									"name": "Voltage Setpoint",
+									"register_id": "voltage_setpoint",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "vcmd"
+								},
+								"frequency_setpoint":
+								{
+									"name": "Frequency Setpoint",
+									"register_id": "frequency_setpoint",
+									"scaler": 1,
+									"unit": "Hz",
+									"twins_id": "fcmd"
+								},
+								"grid_mode":
+								{
+									"name": "Grid Mode",
+									"register_id": "on_off_grid_mode",
+									"type": "Int",
+									"scaler": 1,
+									"twins_id":"ctrlword3"
+								}
+							},
+							"ui_controls":
+							{
+								"start":
+								{
+									"name": "Start",
+									"register_id": "start_stop",
+									"type": "Int",
+									"twins_id": "ctrlword1"
+								},
+								"stop":
+								{
+									"name": "Stop",
+									"register_id": "start_stop",
+									"type": "Int",
+									"twins_id": "ctrlword1"
+								},
+								"enter_standby":
+								{
+									"name": "Enter Standby",
+									"register_id": "start_stop",
+									"type": "Int",
+									"twins_id": "ctrlword1"
+								},
+								"exit_standby":
+								{
+									"name": "Exit Standby",
+									"register_id": "start_stop",
+									"type": "Int",
+									"twins_id": "ctrlword1"
+								},
+								"clear_faults":
+								{
+									"name": "Clear Faults",
+									"register_id": "clear_faults",
+									"type": "Int",
+									"twins_id": "ctrlword2"
+								},
+								"open_dc_contactors":
+								{
+									"name": "Open DC Contactors",
+									"register_id": "bms_dc_contactors",
+									"type": "Int",
+									"twins_id": "ctrlword4"
+								},
+								"close_dc_contactors":
+								{
+									"name": "Close DC Contactors",
+									"register_id": "bms_dc_contactors",
+									"type": "Int",
+									"twins_id": "ctrlword4"
+								},
+								"maint_mode":
+								{
+									"name": "Maintenance Mode",
+									"type": "Bool"
+								},
+								"limits_override":
+								{
+									"name": "Limits Override",
+									"type": "Bool",
+									"ui_type": "none"
+								},
+								"maint_active_power_setpoint":
+								{
+									"name": "Active Power Setpoint",
+									"scaler": 1000,
+									"unit": "W"
+								},
+								"maint_reactive_power_setpoint":
+								{
+									"name": "Reactive Power Setpoint",
+									"scaler": 1000,
+									"unit": "VAR"
+								}
+							}
+                        },
+						{
+							"component_id": "flexgen_ess_#_ls",
+							"variables":
+							{
+								"modbus_heartbeat":
+								{
+									"name": "Modbus Heartbeat",
+									"register_id": "life_signal",
+									"type": "Int",
+									"ui_type": "none",
+									"scaler": 1,
+									"twins_id": "modbus_heartbeat"
+								},
+								"component_connected":
+								{
+									"name": "Component Connection Status",
+									"register_id": "component_connected",
+									"type": "Bool"
+								},
+								"system_chargeable_power":
+								{
+									"name": "System Chargeable Power",
+									"register_id": "chargeable_power",
+									"scaler": 1000,
+									"unit": "W",
+									"twins_id": "plow"
+								},
+								"system_dischargeable_power":
+								{
+									"name": "System Dischargeable Power",
+									"register_id": "dischargeable_power",
+									"scaler": 1000,
+									"unit": "W",
+									"twins_id": "phigh"
+								},
+								"system_chargeable_energy":
+								{
+									"name": "System Chargeable Energy",
+									"register_id": "chargeable_energy",
+									"scaler": 1000,
+									"unit": "Wh"
+								},
+								"system_dischargeable_energy":
+								{
+									"name": "System Dischargeable Energy",
+									"register_id": "dischargeable_energy",
+									"scaler": 1000,
+									"unit": "Wh"
+								},
+								"status":
+								{
+									"name": "Status",
+									"register_id": "system_state",
+									"type": "Status",
+									"twins_id": "status"
+								},
+								"com_status":
+								{
+									"name": "Com Status",
+									"register_id": "com_status",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"alarms":
+								{
+									"name": "ESS Alarms",
+									"register_id": "ess_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"pcs1_overall_alarms":
+								{
+									"name": "PCS1 Overall Alarms",
+									"register_id": "pcs1_overall_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"pcs1_alarm_running_state":
+								{
+									"name": "PCS1 Alarm Running State",
+									"register_id": "pcs1_alarm_running_state",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"bms_rack_warnings":
+								{
+									"name": "BMS Rack Alarms",
+									"register_id": "bms_rack_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"faults":
+								{
+									"name": "ESS Faults",
+									"register_id": "ess_faults",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"pcs1_overall_faults":
+								{
+									"name": "PCS1 Overall Faults",
+									"register_id": "pcs1_overall_faults",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"pcs1_fault_state1":
+								{
+									"name": "PCS1 Fault State 1",
+									"register_id": "pcs1_fault_state1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"pcs1_fault_state2":
+								{
+									"name": "PCS1 Fault State 2",
+									"register_id": "pcs1_fault_state2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"bms_alarms":
+								{
+									"name": "BMS Faults",
+									"register_id": "bms_alarms",
+									"type": "Int",
+									"mask": "0x08",
+									"ui_type": "fault"
+								},
+								"bms_rack_alarms":
+								{
+									"name": "BMS Rack Faults",
+									"register_id": "bms_rack_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"bms_rack_critical_alarms":
+								{
+									"name": "BMS Rack Critical Faults",
+									"register_id": "bms_rack_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"bau_bcu_comms_alarms":
+								{
+									"name": "BAU BCU Comms Faults",
+									"register_id": "bau_bcu_comms_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"bms_hvac_comms_alarms1":
+								{
+									"name": "BMS HVAC Comms Faults 1",
+									"register_id": "bms_hvac_comms_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"bms_hvac_comms_alarms2":
+								{
+									"name": "BMS HVAC Comms Faults 2",
+									"register_id": "bms_hvac_comms_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_1_warnings":
+								{
+									"name": "Rack 01 Warnings",
+									"register_id": "rack_1_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_1_alarms":
+								{
+									"name": "Rack 01 Alarms",
+									"register_id": "rack_1_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_1_critical_alarms":
+								{
+									"name": "Rack 01 Critical Faults",
+									"register_id": "rack_1_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_1_alarm_info":
+								{
+									"name": "Rack 01 Fault Info",
+									"register_id": "rack_1_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_1_hvac_1_alarms1":
+								{
+									"name": "Rack 01 HVAC 1 Faults 1",
+									"register_id": "rack_1_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_1_hvac_1_alarms2":
+								{
+									"name": "Rack 01 HVAC 1 Faults 2",
+									"register_id": "rack_1_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_1_hvac_2_alarms1":
+								{
+									"name": "Rack 01 HVAC 2 Faults 1",
+									"register_id": "rack_1_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_1_hvac_2_alarms2":
+								{
+									"name": "Rack 01 HVAC 2 Faults 2",
+									"register_id": "rack_1_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_1_fss_alarms":
+								{
+									"name": "Rack 01 FSS Faults",
+									"register_id": "rack_1_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_1_step_in_failure_alarms":
+								{
+									"name": "Rack 01 Step In Failure Faults",
+									"register_id": "rack_1_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_warnings":
+								{
+									"name": "Rack 02 Warnings",
+									"register_id": "rack_2_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_2_alarms":
+								{
+									"name": "Rack 02 Alarms",
+									"register_id": "rack_2_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_2_critical_alarms":
+								{
+									"name": "Rack 02 Critical Faults",
+									"register_id": "rack_2_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_alarm_info":
+								{
+									"name": "Rack 02 Fault Info",
+									"register_id": "rack_2_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_hvac_1_alarms1":
+								{
+									"name": "Rack 02 HVAC 1 Faults 1",
+									"register_id": "rack_2_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_hvac_1_alarms2":
+								{
+									"name": "Rack 02 HVAC 1 Faults 2",
+									"register_id": "rack_2_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_hvac_2_alarms1":
+								{
+									"name": "Rack 02 HVAC 2 Faults 1",
+									"register_id": "rack_2_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_hvac_2_alarms2":
+								{
+									"name": "Rack 02 HVAC 2 Faults 2",
+									"register_id": "rack_2_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_fss_alarms":
+								{
+									"name": "Rack 02 FSS Faults",
+									"register_id": "rack_2_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_2_step_in_failure_alarms":
+								{
+									"name": "Rack 02 Step In Failure Faults",
+									"register_id": "rack_2_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_warnings":
+								{
+									"name": "Rack 03 Warnings",
+									"register_id": "rack_3_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_3_alarms":
+								{
+									"name": "Rack 03 Alarms",
+									"register_id": "rack_3_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_3_critical_alarms":
+								{
+									"name": "Rack 03 Critical Faults",
+									"register_id": "rack_3_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_alarm_info":
+								{
+									"name": "Rack 03 Fault Info",
+									"register_id": "rack_3_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_hvac_1_alarms1":
+								{
+									"name": "Rack 03 HVAC 1 Faults 1",
+									"register_id": "rack_3_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_hvac_1_alarms2":
+								{
+									"name": "Rack 03 HVAC 1 Faults 2",
+									"register_id": "rack_3_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_hvac_2_alarms1":
+								{
+									"name": "Rack 03 HVAC 2 Faults 1",
+									"register_id": "rack_3_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_hvac_2_alarms2":
+								{
+									"name": "Rack 03 HVAC 2 Faults 2",
+									"register_id": "rack_3_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_fss_alarms":
+								{
+									"name": "Rack 03 FSS Faults",
+									"register_id": "rack_3_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_3_step_in_failure_alarms":
+								{
+									"name": "Rack 03 Step In Failure Faults",
+									"register_id": "rack_3_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_warnings":
+								{
+									"name": "Rack 04 Warnings",
+									"register_id": "rack_4_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_4_alarms":
+								{
+									"name": "Rack 04 Alarms",
+									"register_id": "rack_4_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_4_critical_alarms":
+								{
+									"name": "Rack 04 Critical Faults",
+									"register_id": "rack_4_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_alarm_info":
+								{
+									"name": "Rack 04 Fault Info",
+									"register_id": "rack_4_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_hvac_1_alarms1":
+								{
+									"name": "Rack 04 HVAC 1 Faults 1",
+									"register_id": "rack_4_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_hvac_1_alarms2":
+								{
+									"name": "Rack 04 HVAC 1 Faults 2",
+									"register_id": "rack_4_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_hvac_2_alarms1":
+								{
+									"name": "Rack 04 HVAC 2 Faults 1",
+									"register_id": "rack_4_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_hvac_2_alarms2":
+								{
+									"name": "Rack 04 HVAC 2 Faults 2",
+									"register_id": "rack_4_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_fss_alarms":
+								{
+									"name": "Rack 04 FSS Faults",
+									"register_id": "rack_4_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_4_step_in_failure_alarms":
+								{
+									"name": "Rack 04 Step In Failure Faults",
+									"register_id": "rack_4_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_warnings":
+								{
+									"name": "Rack 05 Warnings",
+									"register_id": "rack_5_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_5_alarms":
+								{
+									"name": "Rack 05 Alarms",
+									"register_id": "rack_5_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_5_critical_alarms":
+								{
+									"name": "Rack 05 Critical Faults",
+									"register_id": "rack_5_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_alarm_info":
+								{
+									"name": "Rack 05 Fault Info",
+									"register_id": "rack_5_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_hvac_1_alarms1":
+								{
+									"name": "Rack 05 HVAC 1 Faults 1",
+									"register_id": "rack_5_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_hvac_1_alarms2":
+								{
+									"name": "Rack 05 HVAC 1 Faults 2",
+									"register_id": "rack_5_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_hvac_2_alarms1":
+								{
+									"name": "Rack 05 HVAC 2 Faults 1",
+									"register_id": "rack_5_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_hvac_2_alarms2":
+								{
+									"name": "Rack 05 HVAC 2 Faults 2",
+									"register_id": "rack_5_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_fss_alarms":
+								{
+									"name": "Rack 05 FSS Faults",
+									"register_id": "rack_5_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_5_step_in_failure_alarms":
+								{
+									"name": "Rack 05 Step In Failure Faults",
+									"register_id": "rack_5_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_warnings":
+								{
+									"name": "Rack 06 Warnings",
+									"register_id": "rack_6_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_6_alarms":
+								{
+									"name": "Rack 06 Alarms",
+									"register_id": "rack_6_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_6_critical_alarms":
+								{
+									"name": "Rack 06 Critical Faults",
+									"register_id": "rack_6_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_alarm_info":
+								{
+									"name": "Rack 06 Fault Info",
+									"register_id": "rack_6_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_hvac_1_alarms1":
+								{
+									"name": "Rack 06 HVAC 1 Faults 1",
+									"register_id": "rack_6_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_hvac_1_alarms2":
+								{
+									"name": "Rack 06 HVAC 1 Faults 2",
+									"register_id": "rack_6_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_hvac_2_alarms1":
+								{
+									"name": "Rack 06 HVAC 2 Faults 1",
+									"register_id": "rack_6_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_hvac_2_alarms2":
+								{
+									"name": "Rack 06 HVAC 2 Faults 2",
+									"register_id": "rack_6_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_fss_alarms":
+								{
+									"name": "Rack 06 FSS Faults",
+									"register_id": "rack_6_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_6_step_in_failure_alarms":
+								{
+									"name": "Rack 06 Step In Failure Faults",
+									"register_id": "rack_6_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_warnings":
+								{
+									"name": "Rack 07 Warnings",
+									"register_id": "rack_7_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_7_alarms":
+								{
+									"name": "Rack 07 Alarms",
+									"register_id": "rack_7_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_7_critical_alarms":
+								{
+									"name": "Rack 07 Critical Faults",
+									"register_id": "rack_7_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_alarm_info":
+								{
+									"name": "Rack 07 Fault Info",
+									"register_id": "rack_7_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_hvac_1_alarms1":
+								{
+									"name": "Rack 07 HVAC 1 Faults 1",
+									"register_id": "rack_7_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_hvac_1_alarms2":
+								{
+									"name": "Rack 07 HVAC 1 Faults 2",
+									"register_id": "rack_7_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_hvac_2_alarms1":
+								{
+									"name": "Rack 07 HVAC 2 Faults 1",
+									"register_id": "rack_7_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_hvac_2_alarms2":
+								{
+									"name": "Rack 07 HVAC 2 Faults 2",
+									"register_id": "rack_7_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_fss_alarms":
+								{
+									"name": "Rack 07 FSS Faults",
+									"register_id": "rack_7_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_7_step_in_failure_alarms":
+								{
+									"name": "Rack 07 Step In Failure Faults",
+									"register_id": "rack_7_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_warnings":
+								{
+									"name": "Rack 08 Warnings",
+									"register_id": "rack_8_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_8_alarms":
+								{
+									"name": "Rack 08 Alarms",
+									"register_id": "rack_8_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_8_critical_alarms":
+								{
+									"name": "Rack 08 Critical Faults",
+									"register_id": "rack_8_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_alarm_info":
+								{
+									"name": "Rack 08 Fault Info",
+									"register_id": "rack_8_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_hvac_1_alarms1":
+								{
+									"name": "Rack 08 HVAC 1 Faults 1",
+									"register_id": "rack_8_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_hvac_1_alarms2":
+								{
+									"name": "Rack 08 HVAC 1 Faults 2",
+									"register_id": "rack_8_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_hvac_2_alarms1":
+								{
+									"name": "Rack 08 HVAC 2 Faults 1",
+									"register_id": "rack_8_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_hvac_2_alarms2":
+								{
+									"name": "Rack 08 HVAC 2 Faults 2",
+									"register_id": "rack_8_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_fss_alarms":
+								{
+									"name": "Rack 08 FSS Faults",
+									"register_id": "rack_8_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_8_step_in_failure_alarms":
+								{
+									"name": "Rack 08 Step In Failure Faults",
+									"register_id": "rack_8_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_warnings":
+								{
+									"name": "Rack 09 Warnings",
+									"register_id": "rack_9_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_9_alarms":
+								{
+									"name": "Rack 09 Alarms",
+									"register_id": "rack_9_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_9_critical_alarms":
+								{
+									"name": "Rack 09 Critical Faults",
+									"register_id": "rack_9_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_alarm_info":
+								{
+									"name": "Rack 09 Fault Info",
+									"register_id": "rack_9_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_hvac_1_alarms1":
+								{
+									"name": "Rack 09 HVAC 1 Faults 1",
+									"register_id": "rack_9_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_hvac_1_alarms2":
+								{
+									"name": "Rack 09 HVAC 1 Faults 2",
+									"register_id": "rack_9_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_hvac_2_alarms1":
+								{
+									"name": "Rack 09 HVAC 2 Faults 1",
+									"register_id": "rack_9_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_hvac_2_alarms2":
+								{
+									"name": "Rack 09 HVAC 2 Faults 2",
+									"register_id": "rack_9_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_fss_alarms":
+								{
+									"name": "Rack 09 FSS Faults",
+									"register_id": "rack_9_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_9_step_in_failure_alarms":
+								{
+									"name": "Rack 09 Step In Failure Faults",
+									"register_id": "rack_9_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_warnings":
+								{
+									"name": "Rack 10 Warnings",
+									"register_id": "rack_10_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_10_alarms":
+								{
+									"name": "Rack 10 Alarms",
+									"register_id": "rack_10_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_10_critical_alarms":
+								{
+									"name": "Rack 10 Critical Faults",
+									"register_id": "rack_10_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_alarm_info":
+								{
+									"name": "Rack 10 Fault Info",
+									"register_id": "rack_10_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_hvac_1_alarms1":
+								{
+									"name": "Rack 10 HVAC 1 Faults 1",
+									"register_id": "rack_10_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_hvac_1_alarms2":
+								{
+									"name": "Rack 10 HVAC 1 Faults 2",
+									"register_id": "rack_10_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_hvac_2_alarms1":
+								{
+									"name": "Rack 10 HVAC 2 Faults 1",
+									"register_id": "rack_10_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_hvac_2_alarms2":
+								{
+									"name": "Rack 10 HVAC 2 Faults 2",
+									"register_id": "rack_10_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_fss_alarms":
+								{
+									"name": "Rack 10 FSS Faults",
+									"register_id": "rack_10_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_10_step_in_failure_alarms":
+								{
+									"name": "Rack 10 Step In Failure Faults",
+									"register_id": "rack_10_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_warnings":
+								{
+									"name": "Rack 11 Warnings",
+									"register_id": "rack_11_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_11_alarms":
+								{
+									"name": "Rack 11 Alarms",
+									"register_id": "rack_11_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_11_critical_alarms":
+								{
+									"name": "Rack 11 Critical Faults",
+									"register_id": "rack_11_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_alarm_info":
+								{
+									"name": "Rack 11 Fault Info",
+									"register_id": "rack_11_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_hvac_1_alarms1":
+								{
+									"name": "Rack 11 HVAC 1 Faults 1",
+									"register_id": "rack_11_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_hvac_1_alarms2":
+								{
+									"name": "Rack 11 HVAC 1 Faults 2",
+									"register_id": "rack_11_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_hvac_2_alarms1":
+								{
+									"name": "Rack 11 HVAC 2 Faults 1",
+									"register_id": "rack_11_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_hvac_2_alarms2":
+								{
+									"name": "Rack 11 HVAC 2 Faults 2",
+									"register_id": "rack_11_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_fss_alarms":
+								{
+									"name": "Rack 11 FSS Faults",
+									"register_id": "rack_11_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_11_step_in_failure_alarms":
+								{
+									"name": "Rack 11 Step In Failure Faults",
+									"register_id": "rack_11_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_warnings":
+								{
+									"name": "Rack 12 Warnings",
+									"register_id": "rack_12_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_12_alarms":
+								{
+									"name": "Rack 12 Alarms",
+									"register_id": "rack_12_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_12_critical_alarms":
+								{
+									"name": "Rack 12 Critical Faults",
+									"register_id": "rack_12_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_alarm_info":
+								{
+									"name": "Rack 12 Fault Info",
+									"register_id": "rack_12_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_hvac_1_alarms1":
+								{
+									"name": "Rack 12 HVAC 1 Faults 1",
+									"register_id": "rack_12_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_hvac_1_alarms2":
+								{
+									"name": "Rack 12 HVAC 1 Faults 2",
+									"register_id": "rack_12_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_hvac_2_alarms1":
+								{
+									"name": "Rack 12 HVAC 2 Faults 1",
+									"register_id": "rack_12_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_hvac_2_alarms2":
+								{
+									"name": "Rack 12 HVAC 2 Faults 2",
+									"register_id": "rack_12_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_fss_alarms":
+								{
+									"name": "Rack 12 FSS Faults",
+									"register_id": "rack_12_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_12_step_in_failure_alarms":
+								{
+									"name": "Rack 12 Step In Failure Faults",
+									"register_id": "rack_12_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_warnings":
+								{
+									"name": "Rack 13 Warnings",
+									"register_id": "rack_13_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_13_alarms":
+								{
+									"name": "Rack 13 Alarms",
+									"register_id": "rack_13_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_13_critical_alarms":
+								{
+									"name": "Rack 13 Critical Faults",
+									"register_id": "rack_13_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_alarm_info":
+								{
+									"name": "Rack 13 Fault Info",
+									"register_id": "rack_13_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_hvac_1_alarms1":
+								{
+									"name": "Rack 13 HVAC 1 Faults 1",
+									"register_id": "rack_13_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_hvac_1_alarms2":
+								{
+									"name": "Rack 13 HVAC 1 Faults 2",
+									"register_id": "rack_13_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_hvac_2_alarms1":
+								{
+									"name": "Rack 13 HVAC 2 Faults 1",
+									"register_id": "rack_13_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_hvac_2_alarms2":
+								{
+									"name": "Rack 13 HVAC 2 Faults 2",
+									"register_id": "rack_13_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_fss_alarms":
+								{
+									"name": "Rack 13 FSS Faults",
+									"register_id": "rack_13_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_13_step_in_failure_alarms":
+								{
+									"name": "Rack 13 Step In Failure Faults",
+									"register_id": "rack_13_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_warnings":
+								{
+									"name": "Rack 14 Warnings",
+									"register_id": "rack_14_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_14_alarms":
+								{
+									"name": "Rack 14 Alarms",
+									"register_id": "rack_14_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_14_critical_alarms":
+								{
+									"name": "Rack 14 Critical Faults",
+									"register_id": "rack_14_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_alarm_info":
+								{
+									"name": "Rack 14 Fault Info",
+									"register_id": "rack_14_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_hvac_1_alarms1":
+								{
+									"name": "Rack 14 HVAC 1 Faults 1",
+									"register_id": "rack_14_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_hvac_1_alarms2":
+								{
+									"name": "Rack 14 HVAC 1 Faults 2",
+									"register_id": "rack_14_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_hvac_2_alarms1":
+								{
+									"name": "Rack 14 HVAC 2 Faults 1",
+									"register_id": "rack_14_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_hvac_2_alarms2":
+								{
+									"name": "Rack 14 HVAC 2 Faults 2",
+									"register_id": "rack_14_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_fss_alarms":
+								{
+									"name": "Rack 14 FSS Faults",
+									"register_id": "rack_14_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_14_step_in_failure_alarms":
+								{
+									"name": "Rack 14 Step In Failure Faults",
+									"register_id": "rack_14_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_warnings":
+								{
+									"name": "Rack 15 Warnings",
+									"register_id": "rack_15_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_15_alarms":
+								{
+									"name": "Rack 15 Alarms",
+									"register_id": "rack_15_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_15_critical_alarms":
+								{
+									"name": "Rack 15 Critical Faults",
+									"register_id": "rack_15_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_alarm_info":
+								{
+									"name": "Rack 15 Fault Info",
+									"register_id": "rack_15_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_hvac_1_alarms1":
+								{
+									"name": "Rack 15 HVAC 1 Faults 1",
+									"register_id": "rack_15_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_hvac_1_alarms2":
+								{
+									"name": "Rack 15 HVAC 1 Faults 2",
+									"register_id": "rack_15_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_hvac_2_alarms1":
+								{
+									"name": "Rack 15 HVAC 2 Faults 1",
+									"register_id": "rack_15_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_hvac_2_alarms2":
+								{
+									"name": "Rack 15 HVAC 2 Faults 2",
+									"register_id": "rack_15_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_fss_alarms":
+								{
+									"name": "Rack 15 FSS Faults",
+									"register_id": "rack_15_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_15_step_in_failure_alarms":
+								{
+									"name": "Rack 15 Step In Failure Faults",
+									"register_id": "rack_15_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_warnings":
+								{
+									"name": "Rack 16 Alarms",
+									"register_id": "rack_16_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_16_alarms":
+								{
+									"name": "Rack 16 Faults",
+									"register_id": "rack_16_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_critical_alarms":
+								{
+									"name": "Rack 16 Critical Faults",
+									"register_id": "rack_16_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_alarm_info":
+								{
+									"name": "Rack 16 Fault Info",
+									"register_id": "rack_16_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_hvac_1_alarms1":
+								{
+									"name": "Rack 16 HVAC 1 Faults 1",
+									"register_id": "rack_16_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_hvac_1_alarms2":
+								{
+									"name": "Rack 16 HVAC 1 Faults 2",
+									"register_id": "rack_16_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_hvac_2_alarms1":
+								{
+									"name": "Rack 16 HVAC 2 Faults 1",
+									"register_id": "rack_16_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_hvac_2_alarms2":
+								{
+									"name": "Rack 16 HVAC 2 Faults 2",
+									"register_id": "rack_16_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_fss_alarms":
+								{
+									"name": "Rack 16 FSS Faults",
+									"register_id": "rack_16_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_16_step_in_failure_alarms":
+								{
+									"name": "Rack 16 Step In Failure Faults",
+									"register_id": "rack_16_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_warnings":
+								{
+									"name": "Rack 17 Alarms",
+									"register_id": "rack_17_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_17_alarms":
+								{
+									"name": "Rack 17 Faults",
+									"register_id": "rack_17_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_critical_alarms":
+								{
+									"name": "Rack 17 Critical Faults",
+									"register_id": "rack_17_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_alarm_info":
+								{
+									"name": "Rack 17 Fault Info",
+									"register_id": "rack_17_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_hvac_1_alarms1":
+								{
+									"name": "Rack 17 HVAC 1 Faults 1",
+									"register_id": "rack_17_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_hvac_1_alarms2":
+								{
+									"name": "Rack 17 HVAC 1 Faults 2",
+									"register_id": "rack_17_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_hvac_2_alarms1":
+								{
+									"name": "Rack 17 HVAC 2 Faults 1",
+									"register_id": "rack_17_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_hvac_2_alarms2":
+								{
+									"name": "Rack 17 HVAC 2 Faults 2",
+									"register_id": "rack_17_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_fss_alarms":
+								{
+									"name": "Rack 17 FSS Faults",
+									"register_id": "rack_17_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_17_step_in_failure_alarms":
+								{
+									"name": "Rack 17 Step In Failure Faults",
+									"register_id": "rack_17_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_warnings":
+								{
+									"name": "Rack 18 Alarms",
+									"register_id": "rack_18_warnings",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "alarm"
+								},
+								"rack_18_alarms":
+								{
+									"name": "Rack 18 Faults",
+									"register_id": "rack_18_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_critical_alarms":
+								{
+									"name": "Rack 18 Critical Faults",
+									"register_id": "rack_18_critical_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_alarm_info":
+								{
+									"name": "Rack 18 Fault Info",
+									"register_id": "rack_18_alarm_info",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_hvac_1_alarms1":
+								{
+									"name": "Rack 18 HVAC 1 Faults 1",
+									"register_id": "rack_18_hvac_1_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_hvac_1_alarms2":
+								{
+									"name": "Rack 18 HVAC 1 Faults 2",
+									"register_id": "rack_18_hvac_1_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_hvac_2_alarms1":
+								{
+									"name": "Rack 18 HVAC 2 Faults 1",
+									"register_id": "rack_18_hvac_2_alarms1",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_hvac_2_alarms2":
+								{
+									"name": "Rack 18 HVAC 2 Faults 2",
+									"register_id": "rack_18_hvac_2_alarms2",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_fss_alarms":
+								{
+									"name": "Rack 18 FSS Faults",
+									"register_id": "rack_18_fss_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"rack_18_step_in_failure_alarms":
+								{
+									"name": "Rack 18 Step In Failure Faults",
+									"register_id": "rack_18_step_in_failure_alarms",
+									"type": "Int",
+									"mask": "0xFFFFFFFFFFFFFFFF",
+									"ui_type": "fault"
+								},
+								"voltage_l1_l2":
+								{
+									"name": "L1-L2 AC Voltage",
+									"register_id": "voltage_l1_l2",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v"
+								},
+								"voltage_l2_l3":
+								{
+									"name": "L2-L3 AC Voltage",
+									"register_id": "voltage_l2_l3",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v"
+								},
+								"voltage_l3_l1":
+								{
+									"name": "L3-L1 AC Voltage",
+									"register_id": "voltage_l3_l1",
+									"scaler": 1,
+									"unit": "V",
+									"twins_id": "v"
+								},
+								"current_l1":
+								{
+									"name": "L1 AC Current",
+									"register_id": "current_l1",
+									"scaler": 1,
+									"unit": "A",
+									"twins_id": "i"
+								},
+								"current_l2":
+								{
+									"name": "L2 AC Current",
+									"register_id": "current_l2",
+									"scaler": 1,
+									"unit": "A",
+									"twins_id": "i"
+								},
+								"current_l3":
+								{
+									"name": "L3 AC Current",
+									"register_id": "current_l3",
+									"scaler": 1,
+									"unit": "A",
+									"twins_id": "i"
+								},
+								"frequency":
+								{
+									"name": "Frequency",
+									"register_id": "frequency",
+									"scaler": 1,
+									"unit": "Hz",
+									"twins_id": "f"
+								},
+								"active_power":
+								{
+									"name": "Active Power",
+									"register_id": "active_power",
+									"scaler": 1000,
+									"unit": "W",
+									"twins_id": "p"
+								},
+								"reactive_power":
+								{
+									"name": "Reactive Power",
+									"register_id": "reactive_power",
+									"scaler": 1000,
+									"unit": "VAR",
+									"twins_id": "q"
+								},
+								"voltage_dc":
+								{
+									"name": "DC Voltage",
+									"register_id": "voltage_dc",
+									"scaler": 1,
+									"unit": "V"
+								},
+								"apparent_power":
+								{
+									"name": "Apparent Power",
+									"register_id": "apparent_power",
+									"scaler": 1000,
+									"unit": "VA",
+									"twins_id": "s"
+								},
+								"dc_contactors_closed":
+								{
+									"name": "DC Contactors Closed",
+									"register_id": "dc_contactors_closed",
+									"type": "Bool"
+								},
+								"bms_racks_in_service":
+								{
+									"name": "Battery Racks in Service",
+									"register_id": "racks_in_service",
+									"type": "Int"
+								},
+								"soc":
+								{
+									"name": "State of Charge",
+									"register_id": "bms_soc",
+									"scaler": 1,
+									"unit": "%",
+									"twins_id": "soc"
+								},
+								"soh":
+								{
+									"name": "State of Health",
+									"register_id": "bms_soh",
+									"scaler": 1,
+									"value": 100,
+									"unit": "%"
+								},
+								"max_temp":
+								{
+									"name": "Current Highest Cell Temp",
+									"register_id": "bms_maximum_cell_temperature",
+									"scaler": 1,
+									"unit": "C"
+								},
+								"min_temp":
+								{
+									"name": "Current Lowest Cell Temp",
+									"register_id": "bms_minimum_cell_temperature",
+									"scaler": 1,
+									"unit": "C"
+								}
+							}
+						}
+					]
+				}		
+			]
+		}
+	}
+}
