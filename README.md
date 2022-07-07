@@ -1,5 +1,63 @@
 ### Update Tool
 
+p wilshire  07/07/2022
+
+## General Concept
+
+# Keep it as a text file.
+
+The update tool can navigate a json test file.
+Rather than converting the text file into  a json object, the tool retains the text file format and 
+navigates to json objects within that test file.
+Given an object hierarchy the tool can identify the object placement, simply an index inside the text file.
+
+Once that placement has been located, the text file can be manipulated,
+by adding , changing or deleting text objects to modify the json structure.
+For example an object hierarchy could be defined to return the location of a json object 
+
+    assets:feeders:sync_feeder
+
+Given such a location, the config file can be modified by adding, deleting or modifying text.
+
+After any such modifications, the whole text object may need to be re scanned to detect any 
+changes in object locations.
+
+# What about Arrays
+
+Arrays can be handled. An array item can be referred to by index (TODO) or by dectecting a name/value pair in an array object.
+
+For example: detect the array object in "components" where "id=StartStop".
+
+The index into the text file can be used as a starting reference and json components can be inferred by decoding the characters.
+
+For example given a text index of 3412 the nearest component name is a string preceeding the ':' character before the designated index.
+The corresponding component type will be an object , array,  number , string or Boolean.
+
+# Build up a set of commands
+
+A simple command set is used to:
+
+    get (Find) objects 
+    Add/Delete/Replace names and values, 
+    Insert new values, objects or arrays.  
+
+These commands are arranged into groups and can be executed, with arguments,  if certain values are or are not detected.
+
+For example
+
+if assets:version  != 9.3 then run command Upgrade_to_9.3
+
+
+
+## Build instructions
+
+mkdir 'C:\Program Files\Go\src\jpack'
+cp pkg\jpack\jpack.go 'C:\Program Files\Go\src\jpack\'
+go build src/update_tool.go
+mkdir output
+
+update_tool
+
 p wilshire  07/01/2022
 
 ## Progress
