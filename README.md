@@ -101,69 +101,17 @@ val,_  = RemoveItem(val, 0, "new_object", "", "assets","feeders")
 // we set the base to assets:feeders:asset_instances  then use that as a new base
 idx,_  = ArrayIdx(val, 0, "id", "feed_1", "assets","feeders","asset_instances")
 
+// this idx can be used to identify the array item in the  asset_instances array with an id of feed_1 
 
-	//Todo 
-	// TODO find a name value pair in a range
-	// TODO define a command block 
-	// TODO If name/value found then do command block
-
-	// added aofs to allow it all to happen in the context of an array
-	// 
-	// InsideArray 
-	// do all the above in an array where key == value or where indx is defined 
-    // create an arrayidx
-	// fmt.Printf("TEST::: create arrayidx  \n")   
-	// idx,_  = ArrayIdx(val, 0, "name", "val", "assets","feeders","asset_instances")
-
-	// Stretch  goal Auto create update from before and after objects.
-
-	// so how do we add this to assets.json  
-	//                     "absolute_power_direction_flag":
-    //                      {
-    //         "name": "Charging when Enabled",
-    //         "ui_type": "control",
-    //         "type": "enum_slider",
-    //         "var_type": "Bool",
-    //         "value": false,
-    //         "remote_enabled": true,
-    //         "options":
-    //         [
-    //             {
-    //                 "name": "Charge",
-    //                 "value": true
-    //             },
-    //             {
-    //                 "name": "Discharge",
-    //                 "value": false
-    //             }
-    //         ]
-    //     },
-	//here
-	//"ess":
-	//	{
-	//	"asset_instances":
-	//		[
-	//			{
-	//				"id": "ess_#",
-	//	            "components":
-	//	            [
-	//		          {
-	//			        "component_id": "flexgen_ess_#_hs",
-	//			        "variables":
-	//			        {
-		
-	fmt.Printf("TEST::: create arrayidx  \n")   
 // navigate to ess asset_instances 
-	idx1,_  := ArrayIdx(val, 0, "id", "ess_#", "assets","ess","asset_instances")
-	fmt.Printf("TEST::: create arrayidx id = ess_#  found [%v] \n",idx1)   
+idx1,_  := ArrayIdx(val, 0, "id", "ess_#", "assets","ess","asset_instances")
+
 // navigate to components flexgen_ess_#_hs
-	idx2,_  := ArrayIdx(val, idx1, "component_id", "flexgen_ess_#_hs", "components")
-	fmt.Printf("TEST::: create arrayidx  component_id flexgen_ess_#_hs  found [%v] \n",idx2)   
-    // add object to variables
-	val,_ = AddItem(val, idx2, "absolute_power_direction_flag","{}", "variables")
-	fmt.Printf("TEST::: val after first AddItem [%v] \n",string(val))   
+idx2,_  := ArrayIdx(val, idx1, "component_id", "flexgen_ess_#_hs", "components")
+
+// add object to variables in the array item
+val,_ = AddItem(val, idx2, "absolute_power_direction_flag","{}", "variables")
     
-    // add name 
 
 update_tool
 
