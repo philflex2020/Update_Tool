@@ -1,0 +1,11 @@
+[Unit]
+Description=General Update Tools 
+
+[Service]
+User=hybridos
+ExecStart=/usr/local/bin/update_tool /usr/local/etc/config/update_tool/
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
