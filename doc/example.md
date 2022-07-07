@@ -31,7 +31,7 @@ so how do we add this variable to assets.json
         }
 ```
 
-At this location in assts.json 
+At this location in asstes.json 
 
 ```
 {
