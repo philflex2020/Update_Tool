@@ -85,7 +85,7 @@ val,_ = AddItem(val, 0, "new_array","[]", "assets","feeders")
 val,_  = AddItem(val, 0, "new_value3","123456", "assets","feeders","new_array")
 
 
-// cmd = AddItem at 0 after new_value4 as "new_value41" value 233    in [assets.feeders.new_array]
+// cmd = AddItem at:0 after:new_value4 as:new_value41 value:233    in:assets:feeders:new_array
 val,_  = AddItemAfter(val, 0, "new_value4", "new_value41","233", "assets","feeders","new_array")
 
 // cmd = AddItem at 0 before new_value4 as "new_value40" value 333    in [assets.feeders.new_array]
@@ -98,6 +98,7 @@ val,_  = RemoveItem(val, 0, "new_array", "", "assets","feeders")
 val,_  = RemoveItem(val, 0, "new_object", "", "assets","feeders")
 
 // we want to capture the array assets_instances with an id of feed_1 
+
 // we set the base to assets:feeders:asset_instances  then use that as a new base
 idx,_  = ArrayIdx(val, 0, "id", "feed_1", "assets","feeders","asset_instances")
 
@@ -106,12 +107,15 @@ idx,_  = ArrayIdx(val, 0, "id", "feed_1", "assets","feeders","asset_instances")
 // navigate to ess asset_instances 
 idx1,_  := ArrayIdx(val, 0, "id", "ess_#", "assets","ess","asset_instances")
 
-// navigate to components flexgen_ess_#_hs
+// navigate to components where id = flexgen_ess_#_hs using idx1 as a start location
 idx2,_  := ArrayIdx(val, idx1, "component_id", "flexgen_ess_#_hs", "components")
 
-// add object to variables in the array item
+// add object "absolute_power_direction_flag" to variables in the array item locaated after idx2 
 val,_ = AddItem(val, idx2, "absolute_power_direction_flag","{}", "variables")
     
+
+## We will add conditionals next.
+
 
 update_tool
 
