@@ -106,6 +106,8 @@ dist
 # output
 output/
 
+# package_utility
+package_utility/
 
 dbi
 go.sum
