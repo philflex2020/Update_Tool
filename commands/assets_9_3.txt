@@ -1,0 +1,5 @@
+# Commands for updating assets.json to release 9.3
+# actually used for creating test commands for the system  
+ReplaceValue at 0 value 22 with 423 in [assets.feeders.sync_feeder]
+Set idx1 = 0
+ReplaceValue at ${idx1} with 44 in [assets.feeders.sync_feeder]

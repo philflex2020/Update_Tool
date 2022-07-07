@@ -12,6 +12,7 @@ import (
 	"unsafe"
 	jp "jpack"
 	"strconv"
+	"bufio"
 )
 
 // Replace the value of a named variable
@@ -751,12 +752,26 @@ func TestJunk (data [] byte) {
 }
 
 func main() {
+	// TODO specify target file , command file
+	cfgFile := "config/assets.json"
+	cmdFile := "commands/assets_9_3.txt"
     // file, err := os.Open("./assets.json")
-	data, err := os.ReadFile("config/assets.json")
+	data, err := os.ReadFile(cfgFile)
     if err != nil {
         log.Fatal(err)
     }
- 
+	//cmds
+	cmds, err := os.Open(cmdFile)
+    if err != nil {
+         log.Print(err)
+    }
+	defer cmds.Close() 
+
+	cmdlines := bufio.NewScanner(cmds)
+	for cmdlines.Scan() {
+		fmt.Println(cmdlines.Text())
+	}
+	
     // cmd = ReplaceValue "22" with "423" in [assets.feeders.sync_feeder]
     fmt.Printf("TEST::: replace the Value, 22  of sync_feeder with 423, need to confirm the old value\n")   
 	val,_ := ReplaceValue(data, 0, "22", "423","assets","feeders","sync_feeder")
