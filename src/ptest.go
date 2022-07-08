@@ -26,23 +26,23 @@ type Cmds struct {
 
 type Cmd struct {
 	key, help string
-	Func func (data []byte, fm map[string]string) (value []byte, idx int, err error)
+	Func func (data []byte, fm map[string]string) (value []byte, err error)
 }
 
-func (c Cmds) addCmd (key,help string, f func (data []byte, fm map[string]string) (value []byte, idx int, err error) ) int {
+func (c Cmds) addCmd (key,help string, f func (data []byte, fm map[string]string) (value []byte, err error) ) int {
 	c.cmds[key]= Cmd{key:key, help:help, Func:f}
 	return 0
 }
 
-func (c Cmds) runCmd (data []byte, fm map[string]string) (value []byte, idx int, err error)  {
+func (c Cmds) runCmd (data []byte, fm map[string]string) (value []byte, err error)  {
 	err = nil
 	fun,ok := c.cmds[fm["func"]]
 	if ok {
-	   data,idx, err =  fun.Func(data, fm)	
+	   data, err =  fun.Func(data, fm)	
 	// } else {
 	// 	conn.Write([]byte( message +" not understood, try \"help\"  \n"))
 	} 
-	return data,idx,err
+	return data,err
 }
 
 func standardizeSpaces(s string) string {
@@ -76,24 +76,32 @@ func SplitOnWhiteSpace(str string) []string {
     return b
 }
 
+func testCmd(){
+	fmt.Printf(" CMD  testCmd running\n \n")
 
-func AddItem(data []byte, fm map[string]string) (value []byte, idx int, err error) {
+}
+
+
+func AddItemCmd(data []byte, fm map[string]string) (value []byte, err error) {
 	at,err := strconv.Atoi(fm["at"])
 	if err != nil {
 		at = 0
 		fmt.Printf("error [%v]\n", err)
 	}
+	// note that the command returns idx and res 
+	fm["res"]= "OK"
+	fm["idx"]= strconv.Itoa(at)
 	fmt.Printf(" CMD  AddItem running\n fm [%v] at %d \n", fm, at)
-	return data,at,nil
+	return data,nil
 }
 
 func main() {
 
 	cmds := new(Cmds)
 	cmds.cmds = make(map[string]Cmd)
-	cmds.addCmd("AddItem", "Add an Item", AddItem)
+	cmds.addCmd("AddItem", "Add an Item", AddItemCmd)
 
-	fo := "AddItem at:0      after:new_value4 as:new_value41 value:233  in:assets.feeders.new_array"
+	fo := "AddItem at:0      after:new_value4 as:new_value41 value:233  in:assets|feeders|new_array"
 	data := []byte("This is some data")
 
 	//fmt.Printf(" string 1 [%v]\n", foo2[1])
@@ -101,22 +109,31 @@ func main() {
 	foo := RemoveDoubleWhiteSpace(string(fo))
 	foo2 := SplitOnWhiteSpace(foo)
 	fm := make(map[string]string)
-    for x,i := range foo2 {
+	fi := make(map[string]interface{})
+	for x,i := range foo2 {
 		fmt.Printf(" x [%v] i [%v] \n", x, i)
 		if x > 0 {
 			xx :=  strings.Split(i,":")
 			fm[xx[0]] = xx[1]
+			fi[xx[0]] = xx[1]
 		} else {
 			fm["func"] = i
+			fi["func"] = i
 		}
 
-	}
-	fmt.Printf(" fm [%v] \n", fm)
+	} 
+	fi["testi"]= 222
+	fi["tests"]= "222"
+	fmt.Printf(" fi [%v] \n", fi)
+	fmt.Printf(" fi testi [%d] \n", fi["testi"].(int))
+	//fmt.Printf(" fi tests [%d] \n", fi["tests"].(int))
 	//AddItem( data, fm )
-	data,idx,err := cmds.runCmd(data, fm)
+	data,err := cmds.runCmd(data, fm)
 	if err != nil {
-		fmt.Printf(" err [%v] idx [%v] \n", err, idx)
-	}
+		fmt.Printf(" err [%v] idx [%v] res [%v] \n", err, fm["idx"], fm["res"])
+	} else {
 
+		fmt.Printf(" idx [%v] res [%v] \n", fm["idx"], fm["res"])
+	}
 
 }

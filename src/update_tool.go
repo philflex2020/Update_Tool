@@ -771,7 +771,7 @@ func main() {
 	for cmdlines.Scan() {
 		fmt.Println(cmdlines.Text())
 	}
-	
+
     // cmd = ReplaceValue "22" with "423" in [assets.feeders.sync_feeder]
     fmt.Printf("TEST::: replace the Value, 22  of sync_feeder with 423, need to confirm the old value\n")   
 	val,_ := ReplaceValue(data, 0, "22", "423","assets","feeders","sync_feeder")
@@ -934,7 +934,7 @@ func main() {
 	os.WriteFile("output/test8.json", val, 0666)
 
 	fmt.Printf("TEST::: val at the end [%v] \n",string(val))   
-
+	//testCmd()
 // TODO wrap up Array processing with 
 // AddArrayItem (val, idx2, "name","\"Charge\"", pos, "variables","absolute_power_flag","options"
 // where pos is the position in the array, 0 for start, -1 for end , any other will be an index.
