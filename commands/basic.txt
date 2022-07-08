@@ -1,0 +1,18 @@
+# Basic Commands Test  
+# actually used for creating test commands for the system  
+
+StartCmd name:basic_1_0
+
+AddItem at:0 name:new_item1 value:423 
+AddItem at:0 name:new_comp value:{} 
+AddItem at:0 name:text_var value:"A new test Var" in:new_comp 
+AddItem at:0 name:num_var value:32 in:new_comp 
+
+SetVar idx1=0
+SetVar ok=true
+ReplaceValue at:${idx1} with:44 in:new_comp|num_var]
+EndCmd name:basic_1_0
+
+
+if:${ok}=true RunCmd:basic_1_0 with:foo=123|fum=234
+

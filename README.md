@@ -1,6 +1,6 @@
 ### Update Tool
 
-p wilshire  07/07/2022
+p wilshire  07/08/2022
 
 ## General Concept
 
@@ -54,6 +54,9 @@ if assets:version  != 9.3 then run command Upgrade_to_9.3
 ```
 mkdir 'C:\Program Files\Go\src\jpack'
 cp pkg\jpack\jpack.go 'C:\Program Files\Go\src\jpack\'
+mkdir 'C:\Program Files\Go\src\utool'
+cp pkg\utool\utool.go 'C:\Program Files\Go\src\utool\'
+
 go build src/update_tool.go
 mkdir output
 ```
